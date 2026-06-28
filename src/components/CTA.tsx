@@ -41,7 +41,7 @@ export function CTA() {
           >
             <h2 className="text-4xl md:text-7xl font-bold mb-12" dir="rtl">المستقبل يبدأ <span className="text-gradient">هنا</span></h2>
             <a 
-              href="https://wa.me/1234567890?text=أريد%20التسجيل%20في%20الأكاديمية" 
+              href="https://wa.me/201010752614?text=أريد%20التسجيل%20في%20الأكاديمية" 
               target="_blank" 
               rel="noreferrer"
               className="inline-block relative group"
