@@ -27,7 +27,7 @@ export function Features() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-5xl md:text-7xl font-bold mb-8 tracking-tight"
+          className="text-4xl md:text-6xl font-bold mb-6 tracking-tight"
         >
           نتخطى الطرق <br/>
           <span className="text-gradient">التقليدية</span>
@@ -61,18 +61,16 @@ export function Features() {
                 delay: i * 0.1,
                 ease: [0.16, 1, 0.3, 1]
               }}
-              className={`glass p-10 rounded-[2.5rem] group hover:bg-white/[0.08] transition-all duration-500 relative overflow-hidden flex flex-col justify-between
+              className={`glass p-8 rounded-3xl group hover:bg-white/[0.05] transition-all duration-300 relative overflow-hidden flex flex-col justify-between
                 ${isLarge ? 'md:col-span-6 lg:col-span-8' : isMedium ? 'md:col-span-3 lg:col-span-4' : 'md:col-span-3 lg:col-span-4'}
               `}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-              
               <div className="relative z-10">
-                <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center mb-8 group-hover:scale-110 group-hover:bg-blue-500/10 transition-all duration-500">
-                  <Icon className="w-8 h-8 text-blue-400 group-hover:text-blue-300 transition-colors" />
+                <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-6 group-hover:bg-blue-500/10 transition-all duration-300">
+                  <Icon className="w-6 h-6 text-blue-400 group-hover:text-blue-300 transition-colors" />
                 </div>
-                <h3 className="text-3xl font-bold mb-4 tracking-tight group-hover:translate-x-[-4px] transition-transform duration-500">{f.title}</h3>
-                <p className="text-gray-400 text-lg leading-relaxed max-w-md group-hover:text-gray-300 transition-colors">{f.desc}</p>
+                <h3 className="text-2xl font-bold mb-3 tracking-tight transition-transform duration-300">{f.title}</h3>
+                <p className="text-gray-400 text-base leading-relaxed max-w-md transition-colors">{f.desc}</p>
               </div>
               
               {/* Subtle accent line */}

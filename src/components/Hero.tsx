@@ -72,13 +72,13 @@ export function Hero() {
               dir="rtl"
             >
               <motion.h1 
-                className="text-5xl sm:text-6xl md:text-8xl lg:text-[10rem] font-black mb-8 leading-[0.9] tracking-tighter" 
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
+                className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight tracking-tight" 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.2, ease: "easeOut" }}
               >
                 البرمجة ليست مجرد<br/>
-                <span className="text-gradient inline-block mt-4">كتابة كود</span>
+                <span className="text-gradient inline-block mt-2">كتابة كود</span>
               </motion.h1>
               
               <motion.div
@@ -116,10 +116,10 @@ export function Hero() {
         </AnimatePresence>
       </div>
       
-      {/* Decorative Elements for Apple Feel */}
+      {/* Simplified Decorative Elements for Performance */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
-        <div className="absolute top-[20%] left-[10%] w-[40vw] h-[40vw] bg-blue-600/10 rounded-full blur-[120px] animate-pulse"></div>
-        <div className="absolute bottom-[20%] right-[10%] w-[35vw] h-[35vw] bg-purple-600/10 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-[20%] left-[10%] w-[30vw] h-[30vw] bg-blue-600/5 rounded-full blur-[80px]"></div>
+        <div className="absolute bottom-[20%] right-[10%] w-[25vw] h-[25vw] bg-purple-600/5 rounded-full blur-[80px]"></div>
       </div>
     </section>
   );

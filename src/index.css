@@ -15,10 +15,10 @@
     @apply bg-clip-text text-transparent bg-gradient-to-r from-[#0071e3] via-[#22D3EE] to-[#bf48af];
   }
   .glass {
-    @apply bg-white/[0.03] backdrop-blur-[20px] border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.8)];
+    @apply bg-white/[0.03] backdrop-blur-xl border border-white/10 shadow-lg;
   }
   .glass-panel {
-    @apply bg-[#0B1120]/40 backdrop-blur-[30px] border border-white/5;
+    @apply bg-[#0B1120]/60 backdrop-blur-xl border border-white/5;
   }
   .glow-blue {
     box-shadow: 0 0 40px -10px rgba(37, 99, 235, 0.5);
