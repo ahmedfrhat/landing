@@ -20,6 +20,9 @@
   .glass-panel {
     @apply bg-[#0B1120]/60 backdrop-blur-xl border border-white/5;
   }
+  .spotlight-reveal {
+    mask-image: radial-gradient(circle at var(--mouse-x) var(--mouse-y), black 20%, transparent 80%);
+  }
   .glow-blue {
     box-shadow: 0 0 40px -10px rgba(37, 99, 235, 0.5);
   }
