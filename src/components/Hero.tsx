@@ -42,7 +42,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen md:h-screen flex flex-col items-center justify-center overflow-hidden">
       <AnimatePresence mode="wait">
         {stage < 4 && (
           <motion.div key="terminal" className="font-mono text-cyan-400 text-sm md:text-2xl flex flex-col items-start gap-4 px-4 w-full max-w-2xl"

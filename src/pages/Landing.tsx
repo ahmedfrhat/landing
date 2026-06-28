@@ -15,21 +15,27 @@ import { CTA } from '../components/CTA';
 
 export default function Landing() {
   useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 2,
-    });
+    const isMobile = window.innerWidth < 768 || /Mobi|Android/i.test(navigator.userAgent);
+    let lenis: Lenis | null = null;
+    let rafId: number | null = null;
 
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
+    if (!isMobile) {
+      lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        smoothWheel: true,
+        wheelMultiplier: 1,
+        touchMultiplier: 2,
+      });
+
+      const raf = (time: number) => {
+        lenis?.raf(time);
+        rafId = requestAnimationFrame(raf);
+      };
+      rafId = requestAnimationFrame(raf);
     }
-    requestAnimationFrame(raf);
 
     // Tracking visitor
     const trackVisitor = async () => {
@@ -65,7 +71,10 @@ export default function Landing() {
 
     trackVisitor();
 
-    return () => lenis.destroy();
+    return () => {
+      if (lenis) lenis.destroy();
+      if (rafId) cancelAnimationFrame(rafId);
+    };
   }, []);
 
   return (

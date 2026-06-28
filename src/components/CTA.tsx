@@ -20,7 +20,7 @@ export function CTA() {
   }, [isInView]);
 
   return (
-    <section ref={ref} className="h-screen flex items-center justify-center relative overflow-hidden bg-black">
+    <section ref={ref} className="min-h-screen md:h-screen flex items-center justify-center relative overflow-hidden bg-black">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.15)_0,transparent_50%)]"></div>
       
       <div className="z-10 flex flex-col items-center px-4 w-full">

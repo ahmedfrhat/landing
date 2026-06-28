@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 
 const milestones = [
@@ -11,8 +11,22 @@ const milestones = [
 ];
 
 export function Timeline() {
+  const [isMobile, setIsMobile] = useState(true);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const targetRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: targetRef, offset: ["start start", "end end"] });
+  const { scrollYProgress } = useScroll({ 
+    target: isMobile ? undefined : targetRef, 
+    offset: ["start start", "end end"] 
+  });
   
   // نستخدم useSpring لإضافة نعومة فائقة (Smoothness) لحركة التمرير
   const smoothProgress = useSpring(scrollYProgress, { stiffness: 100, damping: 20, restDelta: 0.001 });
@@ -21,6 +35,38 @@ export function Timeline() {
   // Framer Motion لا يمكنه عمل انيميشن بين "0%" و "calc(-100% + 100vw)" لأن عدد الأرقام مختلف.
   // الحل هو توحيد صيغة النص لتكون "calc(0% + 0vw)" إلى "calc(-100% + 100vw)" لكي يتم حساب الأرقام بسلاسة تامة.
   const x = useTransform(smoothProgress, [0, 1], ["calc(0% + 0vw)", "calc(-100% + 100vw)"]);
+
+  if (isMobile) {
+    return (
+      <section className="py-20 relative bg-[#050816] px-6 overflow-hidden" dir="rtl">
+        <div className="text-4xl font-bold opacity-20 mb-10 text-right">التاريخ</div>
+        <div className="relative flex flex-col gap-10">
+          {/* الخط الرأسي في الموبايل */}
+          <div className="absolute right-4 top-2 bottom-2 w-[2px] bg-gradient-to-b from-blue-500/20 via-purple-500/50 to-cyan-500/20"></div>
+          
+          {milestones.map((m, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{ duration: 0.6 }}
+              className="relative pr-10 flex flex-col items-start"
+            >
+              {/* نقطة التايملاين */}
+              <div className={`absolute right-[11px] top-2.5 w-3.5 h-3.5 rounded-full border-2 border-[#050816] z-10 ${m.highlight ? 'bg-cyan-400 glow-blue' : 'bg-gray-600'}`}></div>
+              
+              <div className={`glass p-6 rounded-2xl w-full border ${m.highlight ? 'border-blue-500/50 glow-blue' : 'border-white/5'}`}>
+                <div className={`font-mono text-sm mb-1 ${m.highlight ? 'text-cyan-400' : 'text-gray-400'}`}>{m.year}</div>
+                <h3 className={`text-xl font-bold mb-2 ${m.highlight ? 'text-gradient' : 'text-white'}`}>{m.title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">{m.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section ref={targetRef} className="relative h-[600vh]">

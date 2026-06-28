@@ -7,7 +7,7 @@ const features = [
   { icon: Users2, title: 'منصة حديثة', desc: 'نظام إدارة تعلم مصمم خصيصاً لتجربة طالب استثنائية.' },
   { icon: ShieldCheck, title: 'تطبيق ولي الأمر', desc: 'شفافية تامة لمتابعة التقدم، الحضور، والأداء.' },
   { icon: BrainCircuit, title: 'مساعد ذكي (AI)', desc: 'خوارزميات ذكية تتكيف مع سرعة وطريقة تعلم كل طالب.' },
-  { icon: GraduationCap, title: 'شهادات معتمدة', desc: 'شهادات موثقة ومعترف بها عند إتمام كل مستوى.' },
+  { icon: GraduationCap, title: 'منهج البكالوريا', desc: 'تدريس مخصص لعلوم الحاسب ومنهج البكالوريا لطلاب المرحلة الثانوية.' },
 ];
 
 export function Features() {

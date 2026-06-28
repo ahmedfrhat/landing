@@ -53,7 +53,7 @@ export function PlatformMockup() {
               <div className="flex justify-between items-end">
                 <div>
                   <h3 className="text-xl md:text-3xl font-bold mb-1 md:mb-2 truncate">مرحباً بعودتك، أحمد</h3>
-                  <p className="text-gray-400 text-sm md:text-base">لقد أكملت 80% من أساسيات C++.</p>
+                  <p className="text-gray-400 text-sm md:text-base">لقد أكملت 80% من أساسيات البرمجة والتفكير المنطقي.</p>
                 </div>
               </div>
               

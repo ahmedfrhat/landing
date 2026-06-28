@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 
 const nodes = [
   "أساسيات البرمجة", "المنطق", "حل المشكلات", "الخوارزميات", 
-  "الخرائط التدفقية", "C++", "المشاريع", "Git & GitHub", "الذكاء الاصطناعي"
+  "الخرائط التدفقية", "التطبيق العملي", "المشاريع", "Git & GitHub", "الذكاء الاصطناعي"
 ];
 
 export function Journey() {

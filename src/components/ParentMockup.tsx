@@ -43,7 +43,7 @@ export function ParentMockup() {
               <CheckCircle2 className="text-green-400 mt-0.5 shrink-0 w-5 h-5 md:w-6 md:h-6" />
               <div>
                 <div className="font-bold text-sm">Homework Completed</div>
-                <div className="text-xs text-gray-400">C++ Arrays Assignment</div>
+                <div className="text-xs text-gray-400">Logic & Loops Assignment</div>
               </div>
             </motion.div>
 
